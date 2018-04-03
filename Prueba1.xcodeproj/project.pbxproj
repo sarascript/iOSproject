@@ -14,6 +14,7 @@
 		30A2F7EB20736337005D3FC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A2F7E920736337005D3FC0 /* LaunchScreen.storyboard */; };
 		30A2F7F620736337005D3FC0 /* Prueba1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F7F520736337005D3FC0 /* Prueba1Tests.swift */; };
 		30A2F80120736337005D3FC0 /* Prueba1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F80020736337005D3FC0 /* Prueba1UITests.swift */; };
+		30A2F80F20737DBB005D3FC0 /* VCSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F80E20737DBB005D3FC0 /* VCSignin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		30A2F7FC20736337005D3FC0 /* Prueba1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Prueba1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A2F80020736337005D3FC0 /* Prueba1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prueba1UITests.swift; sourceTree = "<group>"; };
 		30A2F80220736337005D3FC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30A2F80E20737DBB005D3FC0 /* VCSignin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSignin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				30A2F7E720736337005D3FC0 /* Assets.xcassets */,
 				30A2F7E920736337005D3FC0 /* LaunchScreen.storyboard */,
 				30A2F7EC20736337005D3FC0 /* Info.plist */,
+				30A2F80E20737DBB005D3FC0 /* VCSignin.swift */,
 			);
 			path = Prueba1;
 			sourceTree = "<group>";
@@ -187,6 +190,9 @@
 		30A2F7D520736337005D3FC0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					Welcome,
+				);
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "SARA CORREAS GORDITO";
@@ -260,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A2F7E320736337005D3FC0 /* ViewController.swift in Sources */,
+				30A2F80F20737DBB005D3FC0 /* VCSignin.swift in Sources */,
 				30A2F7E120736337005D3FC0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8D7332M8N9;
 				INFOPLIST_FILE = Prueba1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prueba.Prueba1;
@@ -441,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8D7332M8N9;
 				INFOPLIST_FILE = Prueba1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prueba.Prueba1;
