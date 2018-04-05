@@ -15,6 +15,9 @@
 		30A2F7F620736337005D3FC0 /* Prueba1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F7F520736337005D3FC0 /* Prueba1Tests.swift */; };
 		30A2F80120736337005D3FC0 /* Prueba1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F80020736337005D3FC0 /* Prueba1UITests.swift */; };
 		30A2F80F20737DBB005D3FC0 /* VCSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F80E20737DBB005D3FC0 /* VCSignin.swift */; };
+		30A2F81220738C03005D3FC0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A2F81120738C03005D3FC0 /* MapKit.framework */; };
+		30FC59D9207603C9008CA9C0 /* VCItem1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC59D8207603C9008CA9C0 /* VCItem1.swift */; };
+		30FC59DB20761109008CA9C0 /* MyCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC59DA20761109008CA9C0 /* MyCell1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		30A2F80020736337005D3FC0 /* Prueba1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prueba1UITests.swift; sourceTree = "<group>"; };
 		30A2F80220736337005D3FC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A2F80E20737DBB005D3FC0 /* VCSignin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSignin.swift; sourceTree = "<group>"; };
+		30A2F81120738C03005D3FC0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		30FC59D8207603C9008CA9C0 /* VCItem1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem1.swift; sourceTree = "<group>"; };
+		30FC59DA20761109008CA9C0 /* MyCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30A2F81220738C03005D3FC0 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +90,7 @@
 				30A2F7F420736337005D3FC0 /* Prueba1Tests */,
 				30A2F7FF20736337005D3FC0 /* Prueba1UITests */,
 				30A2F7DE20736337005D3FC0 /* Products */,
+				30A2F81020738C03005D3FC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +114,8 @@
 				30A2F7E920736337005D3FC0 /* LaunchScreen.storyboard */,
 				30A2F7EC20736337005D3FC0 /* Info.plist */,
 				30A2F80E20737DBB005D3FC0 /* VCSignin.swift */,
+				30FC59D8207603C9008CA9C0 /* VCItem1.swift */,
+				30FC59DA20761109008CA9C0 /* MyCell1.swift */,
 			);
 			path = Prueba1;
 			sourceTree = "<group>";
@@ -126,6 +136,14 @@
 				30A2F80220736337005D3FC0 /* Info.plist */,
 			);
 			path = Prueba1UITests;
+			sourceTree = "<group>";
+		};
+		30A2F81020738C03005D3FC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30A2F81120738C03005D3FC0 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +218,11 @@
 					30A2F7DC20736337005D3FC0 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					30A2F7F020736337005D3FC0 = {
 						CreatedOnToolsVersion = 9.2;
@@ -266,7 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A2F7E320736337005D3FC0 /* ViewController.swift in Sources */,
+				30FC59D9207603C9008CA9C0 /* VCItem1.swift in Sources */,
 				30A2F80F20737DBB005D3FC0 /* VCSignin.swift in Sources */,
+				30FC59DB20761109008CA9C0 /* MyCell1.swift in Sources */,
 				30A2F7E120736337005D3FC0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

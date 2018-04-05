@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var txtUser:UITextField?
     @IBOutlet var txtPass:UITextField?
     @IBOutlet var btnLogin:UIButton?
+    //Forma de declarar variables que se asignarán a elementos gráficos
     var myUser:String = "Sara"
     var myPass:String = "1234"
     
@@ -30,9 +31,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func login(){
-        print("Logging as "+(txtUser?.text)!)
         if txtUser?.text == myUser && txtPass?.text == myPass{
-        self.performSegue(withIdentifier: "trLogin", sender: self)
+            print("Logging as "+(txtUser?.text)!)
+            self.performSegue(withIdentifier: "trLogin", sender: self)
+            //Código de transición de una pantalla a otra
+        } else {
+            print("The Password isn't correct")
         }
     }
     
