@@ -15,6 +15,7 @@ class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(" " + DataHolder.sharedInstance.sEmail)
 
         // Do any additional setup after loading the view.
     }
@@ -36,14 +37,19 @@ class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             myCell1.myLabel?.text = "Imagen 1"
+            myCell1.myImg?.image=UIImage(named: "cat1.jpg")
         } else if indexPath.row == 1 {
             myCell1.myLabel?.text = "Imagen 2"
+            myCell1.myImg?.image=UIImage(named: "logo.png")
         } else if indexPath.row == 2 {
             myCell1.myLabel?.text = "Imagen 3"
+            myCell1.myImg?.image=UIImage(named: "cat1.jpg")
         } else if indexPath.row == 3 {
             myCell1.myLabel?.text = "Imagen 4"
+            myCell1.myImg?.image=UIImage(named: "logo.png")
         } else if indexPath.row == 4 {
             myCell1.myLabel?.text = "Imagen 5"
+            myCell1.myImg?.image=UIImage(named: "cat1.jpg")
         }
         
         return myCell1

@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VCSignin: UIViewController {
 
-    @IBOutlet var txtUser:UITextField?
     @IBOutlet var txtEmail:UITextField?
     @IBOutlet var txtPass:UITextField?
     @IBOutlet var txtRepeatPass:UITextField?
@@ -31,10 +31,14 @@ class VCSignin: UIViewController {
     
     @IBAction func signin(){
         if txtPass?.text ==  txtRepeatPass?.text{
-            print("Logging as "+(txtUser?.text)!)
-            self.performSegue(withIdentifier: "trSignin", sender: self)
-        } else {
-            print("The Passwords don't match")
+            Auth.auth().createUser(withEmail: (txtEmail?.text)!, password: (txtPass?.text)!) { (user, error) in
+                if (user != nil) {
+                    print("Te registraste con user ID: " + (user?.uid)!)
+                    self.performSegue(withIdentifier: "trSignin", sender: self)
+                } else {
+                    print (error!)
+                }
+            }
         }
     }
     

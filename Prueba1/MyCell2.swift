@@ -10,4 +10,7 @@ import UIKit
 
 class MyCell2: UICollectionViewCell {
     
+    @IBOutlet var myLabel:UILabel?
+    @IBOutlet var myImg:UIImageView?
+    
 }
