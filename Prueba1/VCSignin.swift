@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class VCSignin: UIViewController {
 
@@ -34,6 +35,18 @@ class VCSignin: UIViewController {
             Auth.auth().createUser(withEmail: (txtEmail?.text)!, password: (txtPass?.text)!) { (user, error) in
                 if (user != nil) {
                     print("Te registraste con user ID: " + (user?.uid)!)
+                    // Add a new document with a generated ID
+                    DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!).setData([
+                        "first": "Ada",
+                        "last": "Lovelace",
+                        "born": 1815
+                    ]) { err in
+                        if let err = err {
+                            print("Error adding document: \(err)")
+                        } else {
+                            print("Document added with ID: ")
+                        }
+                    }
                     self.performSegue(withIdentifier: "trSignin", sender: self)
                 } else {
                     print (error!)

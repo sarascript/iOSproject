@@ -8,14 +8,16 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
+    var firestoreDB:Firestore?
     var sEmail:String = "Sara@gmail.com"
     
     func initFireBase() {
         FirebaseApp.configure()
-        //var db = Firestore.firestore()
+        firestoreDB = Firestore.firestore()
     }
     
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class ViewController: UIViewController {
 
@@ -35,7 +36,15 @@ class ViewController: UIViewController {
         Auth.auth().signIn(withEmail: (txtEmail?.text)!, password: (txtPass?.text)!) { (user, error) in
             if (user != nil) {
                 print("Te registraste con user ID: " + (user?.uid)!)
-                self.performSegue(withIdentifier: "trLogin", sender: self)
+                let refUser = DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!)
+                refUser?.getDocument { (document, error) in
+                    if document != nil {
+                        print(document?.data()!)
+                        self.performSegue(withIdentifier: "trLogin", sender: self)
+                    } else {
+                        print(error!)
+                    }
+                }
             } else {
                 print (error!)
             }
