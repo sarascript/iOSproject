@@ -31,16 +31,13 @@ class VCSignin: UIViewController {
     }
     
     @IBAction func signin(){
+        DataHolder.sharedInstance.myUser.sEmail = txtEmail?.text
         if txtPass?.text ==  txtRepeatPass?.text{
             Auth.auth().createUser(withEmail: (txtEmail?.text)!, password: (txtPass?.text)!) { (user, error) in
                 if (user != nil) {
                     print("Te registraste con user ID: " + (user?.uid)!)
                     // Add a new document with a generated ID
-                    DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!).setData([
-                        "first": "Ada",
-                        "last": "Lovelace",
-                        "born": 1815
-                    ]) { err in
+                    DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!).setData(DataHolder.sharedInstance.myUser.getMap()) { err in
                         if let err = err {
                             print("Error adding document: \(err)")
                         } else {

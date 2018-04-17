@@ -15,7 +15,6 @@ class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(" " + DataHolder.sharedInstance.sEmail)
 
         // Do any additional setup after loading the view.
     }

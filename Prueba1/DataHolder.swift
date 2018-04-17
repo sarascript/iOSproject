@@ -13,7 +13,7 @@ import FirebaseFirestore
 class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
     var firestoreDB:Firestore?
-    var sEmail:String = "Sara@gmail.com"
+    var myUser:User = User()
     
     func initFireBase() {
         FirebaseApp.configure()

@@ -15,16 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet var txtEmail:UITextField?
     @IBOutlet var txtPass:UITextField?
     @IBOutlet var btnLogin:UIButton?
-    //Forma de declarar variables que se asignarán a elementos gráficos
-    var myEmail:String = "User"
-    var myPass:String = "1234"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        txtEmail?.text = DataHolder.sharedInstance.sEmail
-        txtPass?.text = myPass
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +33,8 @@ class ViewController: UIViewController {
                 let refUser = DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!)
                 refUser?.getDocument { (document, error) in
                     if document != nil {
-                        print(document?.data()!)
+                        DataHolder.sharedInstance.myUser.setMap(valores: (document?.data())!)
+                        print("Username: ",DataHolder.sharedInstance.myUser.sUsername)
                         self.performSegue(withIdentifier: "trLogin", sender: self)
                     } else {
                         print(error!)
