@@ -12,6 +12,13 @@ class MyCell1: UITableViewCell {
     
     @IBOutlet var myLabel:UILabel?
     @IBOutlet var myImg:UIImageView?
+    @IBOutlet var myAuthor:UILabel?
+    @IBOutlet var myWatch:UILabel?
+    @IBOutlet var myWatchImg:UIImageView?
+    @IBOutlet var myStar:UILabel?
+    @IBOutlet var myStarImg:UIImageView?
+    @IBOutlet var myFork:UILabel?
+    @IBOutlet var myForkImg:UIImageView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
