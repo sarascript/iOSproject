@@ -11,6 +11,7 @@ target 'Prueba1' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'FirebaseStorage'
 
   target 'Prueba1Tests' do
     inherit! :search_paths

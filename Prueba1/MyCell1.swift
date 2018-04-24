@@ -19,6 +19,7 @@ class MyCell1: UITableViewCell {
     @IBOutlet var myStarImg:UIImageView?
     @IBOutlet var myFork:UILabel?
     @IBOutlet var myForkImg:UIImageView?
+    var downloadedImage:UIImage?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,5 +31,23 @@ class MyCell1: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func showImage(uri:String) {
+    // Create a reference to the file you want to download
+        self.myImg?.image = nil
+        //if downloadedImage == nil {
+        let gsReference = DataHolder.sharedInstance.firStorage?.reference(forURL: uri)
+    
+    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+            gsReference?.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if error != nil {
+    // Uh-oh, an error occurred!
+    } else {
+    // Data for "images/island.jpg" is returned
+        self.downloadedImage = UIImage(data: data!)
+        self.myImg?.image = self.downloadedImage
+    }
+    }
+        }
+    }
 
-}

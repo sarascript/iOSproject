@@ -49,7 +49,7 @@ class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print("***",self.arRepos[indexPath.row].sAuthor)
         let myCell1 = tableView.dequeueReusableCell(withIdentifier: "myCell1") as! MyCell1
         myCell1.myLabel?.text = self.arRepos[indexPath.row].sName
-        myCell1.myImg?.image = UIImage(named: self.arRepos[indexPath.row].sImage!)
+        myCell1.showImage(uri: self.arRepos[indexPath.row].sImage!)
         myCell1.myAuthor?.text = self.arRepos[indexPath.row].sAuthor!
         myCell1.myWatch?.text = String(describing: self.arRepos[indexPath.row].iWatch!)
         myCell1.myStar?.text = String(describing: self.arRepos[indexPath.row].iStar!)

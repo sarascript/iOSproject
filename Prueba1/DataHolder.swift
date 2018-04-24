@@ -9,15 +9,18 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
 
 class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
     var firestoreDB:Firestore?
+    var firStorage:Storage?
     var myUser:User = User()
     
     func initFireBase() {
         FirebaseApp.configure()
         firestoreDB = Firestore.firestore()
+        firStorage = Storage.storage()
     }
     
 }
