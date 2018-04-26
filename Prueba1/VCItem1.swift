@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource, DataHolderDelegate {
     //Implementar más interfaces
     
     @IBOutlet var myTableView:UITableView?
@@ -16,22 +16,14 @@ class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataHolder.sharedInstance.firestoreDB?.collection("Repos").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        let repo:Repo = Repo()
-                        repo.sID = document.documentID
-                        repo.setMap(valores: document.data())
-                        self.arRepos.append(repo)
-                        print("\(document.documentID) => \(document.data())")
-                    }
-                    print("Nº repos: ",self.arRepos.count)
-                    self.myTableView?.reloadData()
-                }
-        }
+        DataHolder.sharedInstance.downloadRepos(delegate: self)
         // Do any additional setup after loading the view.
+    }
+    
+    func DHDdownloadReposComplete(blEnd:Bool) {
+        if blEnd {
+            self.refreshUI()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,19 +33,19 @@ class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Cuando carga la parte visual, el sistema consulta cuántas celdas se van a pintar. La propia tabla llama a este método
-        return self.arRepos.count
+        return DataHolder.sharedInstance.arRepos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Entrará en este método el número de celdas pintadas (método anterior)
-        print("***",self.arRepos[indexPath.row].sAuthor)
+        print("***",DataHolder.sharedInstance.arRepos[indexPath.row].sAuthor)
         let myCell1 = tableView.dequeueReusableCell(withIdentifier: "myCell1") as! MyCell1
-        myCell1.myLabel?.text = self.arRepos[indexPath.row].sName
-        myCell1.showImage(uri: self.arRepos[indexPath.row].sImage!)
-        myCell1.myAuthor?.text = self.arRepos[indexPath.row].sAuthor!
-        myCell1.myWatch?.text = String(describing: self.arRepos[indexPath.row].iWatch!)
-        myCell1.myStar?.text = String(describing: self.arRepos[indexPath.row].iStar!)
-        myCell1.myFork?.text = String(describing: self.arRepos[indexPath.row].iFork!)
+        myCell1.myLabel?.text = DataHolder.sharedInstance.arRepos[indexPath.row].sName
+        myCell1.showImage(uri: DataHolder.sharedInstance.arRepos[indexPath.row].sImage!)
+        myCell1.myAuthor?.text = DataHolder.sharedInstance.arRepos[indexPath.row].sAuthor!
+        myCell1.myWatch?.text = String(describing: DataHolder.sharedInstance.arRepos[indexPath.row].iWatch!)
+        myCell1.myStar?.text = String(describing: DataHolder.sharedInstance.arRepos[indexPath.row].iStar!)
+        myCell1.myFork?.text = String(describing: DataHolder.sharedInstance.arRepos[indexPath.row].iFork!)
         
         /*
         if indexPath.row == 0 {
@@ -76,6 +68,12 @@ class VCItem1: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         return myCell1
     
+    }
+    
+    func refreshUI() {
+        DispatchQueue.main.async(execute: {
+            self.myTableView?.reloadData()
+        })
     }
 
     /*

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class VCMap: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class VCMap: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, DataHolderDelegate {
     
     @IBOutlet var myMap:MKMapView?
     var locationManager:CLLocationManager?

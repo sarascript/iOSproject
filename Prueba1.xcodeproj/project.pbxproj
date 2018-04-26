@@ -12,6 +12,9 @@
 		304565192085DC9F00F8B082 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304565182085DC9F00F8B082 /* User.swift */; };
 		3045651B2085E1EC00F8B082 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3045651A2085E1EC00F8B082 /* Repo.swift */; };
 		3056D11320887A330035E325 /* VCMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3056D11220887A330035E325 /* VCMap.swift */; };
+		305B97FD2091C37C0027572F /* watch.png in Resources */ = {isa = PBXBuildFile; fileRef = 305B97FC2091C37C0027572F /* watch.png */; };
+		305B97FF2091C3880027572F /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = 305B97FE2091C3880027572F /* fork.png */; };
+		305B98012091C4480027572F /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 305B98002091C4480027572F /* star.png */; };
 		30A2F7E120736337005D3FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F7E020736337005D3FC0 /* AppDelegate.swift */; };
 		30A2F7E320736337005D3FC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2F7E220736337005D3FC0 /* ViewController.swift */; };
 		30A2F7E620736337005D3FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A2F7E420736337005D3FC0 /* Main.storyboard */; };
@@ -23,7 +26,6 @@
 		30A2F81220738C03005D3FC0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A2F81120738C03005D3FC0 /* MapKit.framework */; };
 		30E84AD5207656F100B7B563 /* MyCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E84AD4207656F100B7B563 /* MyCell2.swift */; };
 		30E84AD72076573800B7B563 /* VCItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E84AD62076573800B7B563 /* VCItem2.swift */; };
-		30E84ADA207658CA00B7B563 /* cat1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30E84AD8207658CA00B7B563 /* cat1.jpg */; };
 		30E84ADB207658CA00B7B563 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E84AD9207658CA00B7B563 /* logo.png */; };
 		30FC59D9207603C9008CA9C0 /* VCItem1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC59D8207603C9008CA9C0 /* VCItem1.swift */; };
 		30FC59DB20761109008CA9C0 /* MyCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC59DA20761109008CA9C0 /* MyCell1.swift */; };
@@ -59,6 +61,9 @@
 		304565182085DC9F00F8B082 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3045651A2085E1EC00F8B082 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		3056D11220887A330035E325 /* VCMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMap.swift; sourceTree = "<group>"; };
+		305B97FC2091C37C0027572F /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch.png; sourceTree = SOURCE_ROOT; };
+		305B97FE2091C3880027572F /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fork.png; sourceTree = SOURCE_ROOT; };
+		305B98002091C4480027572F /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = SOURCE_ROOT; };
 		30A2F7DD20736337005D3FC0 /* Prueba1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prueba1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A2F7E020736337005D3FC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30A2F7E220736337005D3FC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		30A2F81120738C03005D3FC0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		30E84AD4207656F100B7B563 /* MyCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell2.swift; sourceTree = "<group>"; };
 		30E84AD62076573800B7B563 /* VCItem2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem2.swift; sourceTree = "<group>"; };
-		30E84AD8207658CA00B7B563 /* cat1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat1.jpg; sourceTree = SOURCE_ROOT; };
 		30E84AD9207658CA00B7B563 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		30FC59D8207603C9008CA9C0 /* VCItem1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem1.swift; sourceTree = "<group>"; };
 		30FC59DA20761109008CA9C0 /* MyCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell1.swift; sourceTree = "<group>"; };
@@ -154,8 +158,10 @@
 		30A2F7DF20736337005D3FC0 /* Prueba1 */ = {
 			isa = PBXGroup;
 			children = (
+				305B98002091C4480027572F /* star.png */,
+				305B97FE2091C3880027572F /* fork.png */,
+				305B97FC2091C37C0027572F /* watch.png */,
 				3040CAE6207CA6DD003BFF05 /* GoogleService-Info.plist */,
-				30E84AD8207658CA00B7B563 /* cat1.jpg */,
 				30E84AD9207658CA00B7B563 /* logo.png */,
 				30A2F7E020736337005D3FC0 /* AppDelegate.swift */,
 				30A2F7E220736337005D3FC0 /* ViewController.swift */,
@@ -324,12 +330,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E84ADA207658CA00B7B563 /* cat1.jpg in Resources */,
 				30E84ADB207658CA00B7B563 /* logo.png in Resources */,
+				305B98012091C4480027572F /* star.png in Resources */,
 				30A2F7EB20736337005D3FC0 /* LaunchScreen.storyboard in Resources */,
 				30A2F7E820736337005D3FC0 /* Assets.xcassets in Resources */,
 				30A2F7E620736337005D3FC0 /* Main.storyboard in Resources */,
+				305B97FF2091C3880027572F /* fork.png in Resources */,
 				3040CAE7207CA6DE003BFF05 /* GoogleService-Info.plist in Resources */,
+				305B97FD2091C37C0027572F /* watch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
