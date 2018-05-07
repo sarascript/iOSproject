@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DataHolderDelegate {
 
     @IBOutlet var txtEmail:UITextField?
     @IBOutlet var txtPass:UITextField?
@@ -18,7 +18,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func DHDloginComplete(blEnd:Bool) {
+        if blEnd {
+            self.performSegue(withIdentifier: "trLogin", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,23 +34,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func login(){
-        Auth.auth().signIn(withEmail: (txtEmail?.text)!, password: (txtPass?.text)!) { (user, error) in
-            if (user != nil) {
-                print("Te registraste con user ID: " + (user?.uid)!)
-                let refUser = DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!)
-                refUser?.getDocument { (document, error) in
-                    if document != nil {
-                        DataHolder.sharedInstance.myUser.setMap(valores: (document?.data())!)
-                        print("Username: ",DataHolder.sharedInstance.myUser.sUsername)
-                        self.performSegue(withIdentifier: "trLogin", sender: self)
-                    } else {
-                        print(error!)
-                    }
-                }
-            } else {
-                print (error!)
-            }
-        }
+        DataHolder.sharedInstance.login(email: (txtEmail?.text)!, pass: (txtPass?.text)!, delegate: self)
+        //Auth.auth().signIn(withEmail: (txtEmail?.text)!, password: (txtPass?.text)!) { (user, error) in
+          //  if (user != nil) {
+            //    print("Te registraste con user ID: " + (user?.uid)!)
+              //  let refUser = DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!)
+                //refUser?.getDocument { (document, error) in
+                  //  if document != nil {
+                    //    DataHolder.sharedInstance.myUser.setMap(valores: (document?.data())!)
+                      //  print("Username: ",DataHolder.sharedInstance.myUser.sUsername)
+                        //self.performSegue(withIdentifier: "trLogin", sender: self)
+                    //} else {
+                      //  print(error!)
+                    //}
+                //}
+            //} else {
+             //   print (error!)
+            //}
+        //}
         
     }
     

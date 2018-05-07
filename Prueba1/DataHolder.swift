@@ -46,8 +46,33 @@ class DataHolder: NSObject {
         }
     }
     
+    func login(email: String, pass: String, delegate:DataHolderDelegate){
+        var blEnd:Bool = false
+        Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+            if (user != nil) {
+                print("Te registraste con user ID: " + (user?.uid)!)
+                let refUser = DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!)
+                refUser?.getDocument { (document, error) in
+                    if document != nil {
+                        DataHolder.sharedInstance.myUser.setMap(valores: (document?.data())!)
+                        print("Username: ",DataHolder.sharedInstance.myUser.sUsername)
+                        //self.performSegue(withIdentifier: "trLogin", sender: self)
+                        blEnd = true
+                        delegate.DHDloginComplete!(blEnd: true)
+                    } else {
+                        print(error!)
+                    }
+                }
+            } else {
+                print (error!)
+            }
+        }
+        
+    }
+    
 }
 
 @objc protocol DataHolderDelegate {
     @objc optional func DHDdownloadReposComplete(blEnd:Bool)
+    @objc optional func DHDloginComplete(blEnd:Bool)
 }
