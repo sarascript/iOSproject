@@ -9,11 +9,14 @@
 import UIKit
 
 class User: NSObject {
+    var sID:String?
     var sAvatar:String?
     var sBio:String?
     var sEmail:String?
     var sName:String?
     var sUsername:String?
+    var dbLatitude:Double?
+    var dbLongitude:Double?
     
     func setMap(valores:[String:Any]) {
         sAvatar = valores["Avatar"] as? String
@@ -21,6 +24,8 @@ class User: NSObject {
         sEmail = valores["Email"] as? String
         sName = valores["Name"] as? String
         sUsername = valores["Username"] as? String
+        dbLatitude = valores["Latitude"] as? Double
+        dbLongitude = valores["Longitude"] as? Double
     }
     
     func getMap() -> [String:Any] {
@@ -30,6 +35,8 @@ class User: NSObject {
         mapTemp["Email"] = sEmail as Any
         mapTemp["Name"] = sName as Any
         mapTemp["Username"] = sUsername as Any
+        mapTemp["Latitude"] = dbLatitude as Any
+        mapTemp["Longitude"] = dbLongitude as Any
         return mapTemp
     }
 }

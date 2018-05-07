@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Do you allow location services?</string>
+	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Do you allow location services?</string>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -41,9 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationUsageDescription</key>
-	<string>Do you allow location services?</string>
+	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Do you allow location services?</string>
+	<string></string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

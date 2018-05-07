@@ -15,13 +15,19 @@ class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
     var firestoreDB:Firestore?
     var firStorage:Storage?
+    var locationAdmin:LocationAdmin?
     var myUser:User = User()
     var arRepos:[Repo] = []
+
     
     func initFireBase() {
         FirebaseApp.configure()
         firestoreDB = Firestore.firestore()
         firStorage = Storage.storage()
+    }
+    
+    func initLocationAdmin() {
+        locationAdmin = LocationAdmin()
     }
     
     func downloadRepos(delegate:DataHolderDelegate) {

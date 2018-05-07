@@ -10,19 +10,39 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class VCMap: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, DataHolderDelegate {
+class VCMap: UIViewController, LocationAdminDelegate, MKMapViewDelegate, DataHolderDelegate {
     
     @IBOutlet var myMap:MKMapView?
-    var locationManager:CLLocationManager?
+    var pines:[String:MKAnnotation]? = [:]
+    
+    var arUsers:[User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
-        locationManager?.startUpdatingLocation()
+        DataHolder.sharedInstance.locationAdmin?.delegate = self
         myMap?.showsUserLocation = true
-        self.addPin(myTitle: DataHolder.sharedInstance.myUser.sUsername!, latitude: 40.540290, longitude: -3.893893)
+        
+        //func downloadPines() {
+            var blEnd:Bool = false
+            DataHolder.sharedInstance.firestoreDB?.collection("Users").getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    blEnd = false
+                } else {
+                    for document in querySnapshot!.documents {
+                        let user:User = User()
+                        user.sID = document.documentID
+                        user.setMap(valores: document.data())
+                        self.arUsers.append(user)
+                        print("\(document.documentID) => \(document.data())")
+                        self.addPin(myTitle: user.sUsername!, latitude: user.dbLatitude!, longitude: user.dbLongitude!)
+                    }
+                    blEnd = true
+                }
+            }
+        //}
+        
+        //self.addPin(myTitle: DataHolder.sharedInstance.myUser.sUsername!, coor.latitude: 40.540290, coor.longitude: -3.893893)
 
         // Do any additional setup after loading the view.
     }
@@ -32,18 +52,30 @@ class VCMap: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, Dat
         // Dispose of any resources that can be recreated.
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Location: ",locations[0])
-        let mySpan:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let tempregion:MKCoordinateRegion = MKCoordinateRegion(center: locations[0].coordinate, span: mySpan)
-        myMap?.setRegion(tempregion, animated: true)
+    func locationUpdated(coor: CLLocationCoordinate2D) {
+        centerOnLocation(coor: coor)
+        //self.addPin(myTitle: DataHolder.sharedInstance.myUser.sUsername!, latitude: coor.latitude, longitude: coor.longitude)
+    }
+    
+    func centerOnLocation (coor: CLLocationCoordinate2D) {
+        let myRegion:MKCoordinateRegion = MKCoordinateRegion(center: coor, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        myMap?.setRegion(myRegion, animated: true)
     }
     
     func addPin(myTitle:String, latitude lat:Double, longitude lon:Double) {
-        let myAnnotation:MKPointAnnotation = MKPointAnnotation()
+        var myAnnotation:MKPointAnnotation = MKPointAnnotation()
+        
+        if pines![myTitle] == nil {
+            
+        } else {
+            myAnnotation = pines?[myTitle] as! MKPointAnnotation
+            myMap?.removeAnnotation(myAnnotation)
+        }
+        
         myAnnotation.coordinate.latitude = lat
         myAnnotation.coordinate.longitude = lon
         myAnnotation.title = myTitle
+        pines?[myTitle] = myAnnotation
         myMap?.addAnnotation(myAnnotation)
     }
     
