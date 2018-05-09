@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
+import MapKit
+import CoreLocation
 
 class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
@@ -18,6 +20,8 @@ class DataHolder: NSObject {
     var locationAdmin:LocationAdmin?
     var myUser:User = User()
     var arRepos:[Repo] = []
+    var arUsers:[User] = []
+    var pines:[String:MKAnnotation]? = [:]
 
     
     func initFireBase() {
@@ -50,6 +54,46 @@ class DataHolder: NSObject {
                 delegate.DHDdownloadReposComplete!(blEnd: true)
             }
         }
+    }
+    
+    func downloadPines(map:MKMapView, delegate:DataHolderDelegate) {
+        var myMap = map
+        var blEnd:Bool = false
+        DataHolder.sharedInstance.firestoreDB?.collection("Users").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                blEnd = false
+                //delegate.DHDdownloadPinesComplete!(blEnd: false)
+            } else {
+                for document in querySnapshot!.documents {
+                    let user:User = User()
+                    user.sID = document.documentID
+                    user.setMap(valores: document.data())
+                    self.arUsers.append(user)
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    self.addPin(myTitle: user.sUsername!, latitude: user.dbLatitude!, longitude: user.dbLongitude!, map: myMap)
+                }
+                blEnd = true
+                //delegate.DHDdownloadPinesComplete!(blEnd: true)
+            }
+        }
+    }
+    
+    func addPin(myTitle:String, latitude lat:Double, longitude lon:Double, map:MKMapView) {
+        var myAnnotation:MKPointAnnotation = MKPointAnnotation()
+        
+        if pines![myTitle] == nil {
+            
+        } else {
+            myAnnotation = pines?[myTitle] as! MKPointAnnotation
+        }
+        
+        myAnnotation.coordinate.latitude = lat
+        myAnnotation.coordinate.longitude = lon
+        myAnnotation.title = myTitle
+        pines?[myTitle] = myAnnotation
+        map.addAnnotation(myAnnotation)
     }
     
     func login(email: String, pass: String, delegate:DataHolderDelegate){
@@ -105,6 +149,7 @@ class DataHolder: NSObject {
 
 @objc protocol DataHolderDelegate {
     @objc optional func DHDdownloadReposComplete(blEnd:Bool)
+    @objc optional func DHDdownloadPinesComplete(blEnd:Bool)
     @objc optional func DHDloginComplete(blEnd:Bool)
     @objc optional func DHDregisterComplete(blEnd:Bool)
 }

@@ -13,34 +13,30 @@ import CoreLocation
 class VCMap: UIViewController, LocationAdminDelegate, MKMapViewDelegate, DataHolderDelegate {
     
     @IBOutlet var myMap:MKMapView?
-    var pines:[String:MKAnnotation]? = [:]
-    
-    var arUsers:[User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         DataHolder.sharedInstance.locationAdmin?.delegate = self
         myMap?.showsUserLocation = true
         
-        //func downloadPines() {
-            var blEnd:Bool = false
-            DataHolder.sharedInstance.firestoreDB?.collection("Users").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                    blEnd = false
-                } else {
-                    for document in querySnapshot!.documents {
-                        let user:User = User()
-                        user.sID = document.documentID
-                        user.setMap(valores: document.data())
-                        self.arUsers.append(user)
-                        print("\(document.documentID) => \(document.data())")
-                        self.addPin(myTitle: user.sUsername!, latitude: user.dbLatitude!, longitude: user.dbLongitude!)
-                    }
-                    blEnd = true
-                }
-            }
-        //}
+        DataHolder.sharedInstance.downloadPines(map: myMap!, delegate: self)
+            //var blEnd:Bool = false
+            //DataHolder.sharedInstance.firestoreDB?.collection("Users").getDocuments() { (querySnapshot, err) in
+              //  if let err = err {
+                //    print("Error getting documents: \(err)")
+                  //  blEnd = false
+               // } else {
+                 //   for document in querySnapshot!.documents {
+                   //     let user:User = User()
+                     //   user.sID = document.documentID
+                       // user.setMap(valores: document.data())
+                       // self.arUsers.append(user)
+                       // print("\(document.documentID) => \(document.data())")
+                       // self.addPin(myTitle: user.sUsername!, latitude: user.dbLatitude!, longitude: user.dbLongitude!)
+                   // }
+                   // blEnd = true
+               // }
+           // }
         
         //self.addPin(myTitle: DataHolder.sharedInstance.myUser.sUsername!, coor.latitude: 40.540290, coor.longitude: -3.893893)
 
@@ -62,22 +58,22 @@ class VCMap: UIViewController, LocationAdminDelegate, MKMapViewDelegate, DataHol
         myMap?.setRegion(myRegion, animated: true)
     }
     
-    func addPin(myTitle:String, latitude lat:Double, longitude lon:Double) {
-        var myAnnotation:MKPointAnnotation = MKPointAnnotation()
+    //func addPin(myTitle:String, latitude lat:Double, longitude lon:Double) {
+      //  var myAnnotation:MKPointAnnotation = MKPointAnnotation()
         
-        if pines![myTitle] == nil {
+       // if pines![myTitle] == nil {
             
-        } else {
-            myAnnotation = pines?[myTitle] as! MKPointAnnotation
-            myMap?.removeAnnotation(myAnnotation)
-        }
+       // } else {
+         //   myAnnotation = pines?[myTitle] as! MKPointAnnotation
+           // myMap?.removeAnnotation(myAnnotation)
+       // }
         
-        myAnnotation.coordinate.latitude = lat
-        myAnnotation.coordinate.longitude = lon
-        myAnnotation.title = myTitle
-        pines?[myTitle] = myAnnotation
-        myMap?.addAnnotation(myAnnotation)
-    }
+       // myAnnotation.coordinate.latitude = lat
+       // myAnnotation.coordinate.longitude = lon
+       // myAnnotation.title = myTitle
+       // pines?[myTitle] = myAnnotation
+       // myMap?.addAnnotation(myAnnotation)
+    //}
     
     /*
     // MARK: - Navigation
