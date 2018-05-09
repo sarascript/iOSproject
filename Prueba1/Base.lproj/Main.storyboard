@@ -170,6 +170,49 @@
             </objects>
             <point key="canvasLocation" x="1592.8" y="423.23838080959524"/>
         </scene>
+        <!--Select Img-->
+        <scene sceneID="yrD-4Q-RJW">
+            <objects>
+                <viewController id="JbS-fz-ByE" customClass="VCSelectImg" customModule="Prueba1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Il7-bU-7MG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wc3-Ny-LrA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98780487804878048" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLE-Hb-ycQ">
+                                <rect key="frame" x="16" y="383" width="90" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="GALLERY"/>
+                                <connections>
+                                    <action selector="galleryBtn" destination="JbS-fz-ByE" eventType="touchUpInside" id="8Ks-UI-w1m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83j-pe-1PK">
+                                <rect key="frame" x="273" y="383" width="86" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="CAMERA"/>
+                                <connections>
+                                    <action selector="cameraBtn" destination="JbS-fz-ByE" eventType="touchUpInside" id="42M-WZ-Rpr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23134317994117737" green="0.23138946294784546" blue="0.2313401997089386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="NpI-6x-ECS"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="wc3-Ny-LrA" id="2RJ-lE-day"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8FI-Xs-11H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640.79999999999995" y="-581.55922038980509"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="1fn-dz-zsv">
             <objects>
@@ -385,6 +428,7 @@
         <image name="watch.png" width="1200" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Gka-01-Kth"/>
         <segue reference="fe9-4f-eoW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.67280602331606221" green="0.00010006782583962762" blue="0.6727508516642372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
