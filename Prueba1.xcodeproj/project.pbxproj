@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6159D020B4268E00922B61 /* VCProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6159CF20B4268E00922B61 /* VCProfile.swift */; };
 		303DE9D520A0598900708652 /* LocationAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303DE9D420A0598900708652 /* LocationAdmin.swift */; };
 		3040CAE7207CA6DE003BFF05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3040CAE6207CA6DD003BFF05 /* GoogleService-Info.plist */; };
 		3040CAE9207CAEA6003BFF05 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3040CAE8207CAEA6003BFF05 /* DataHolder.swift */; };
@@ -57,6 +58,7 @@
 		02BC064F36A40B4D06A3F477 /* Pods-Prueba1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba1UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba1UITests/Pods-Prueba1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0D8E2B716D4CE17C26BAA8B2 /* Pods-Prueba1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba1/Pods-Prueba1.debug.xcconfig"; sourceTree = "<group>"; };
 		137078CB44DBF654081584F8 /* Pods-Prueba1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba1UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba1UITests/Pods-Prueba1UITests.release.xcconfig"; sourceTree = "<group>"; };
+		1A6159CF20B4268E00922B61 /* VCProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCProfile.swift; sourceTree = "<group>"; };
 		1BB34182BA54C7C9AEF5C597 /* Pods_Prueba1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		303DE9D420A0598900708652 /* LocationAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAdmin.swift; sourceTree = "<group>"; };
 		3040CAE6207CA6DD003BFF05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				3056D11220887A330035E325 /* VCMap.swift */,
 				303DE9D420A0598900708652 /* LocationAdmin.swift */,
 				30FB262F20A2DF4F00E92EF2 /* VCSelectImg.swift */,
+				1A6159CF20B4268E00922B61 /* VCProfile.swift */,
 			);
 			path = Prueba1;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				30A2F7E320736337005D3FC0 /* ViewController.swift in Sources */,
 				30FB263020A2DF4F00E92EF2 /* VCSelectImg.swift in Sources */,
 				30FC59D9207603C9008CA9C0 /* VCItem1.swift in Sources */,
+				1A6159D020B4268E00922B61 /* VCProfile.swift in Sources */,
 				3040CAE9207CAEA6003BFF05 /* DataHolder.swift in Sources */,
 				30E84AD72076573800B7B563 /* VCItem2.swift in Sources */,
 				304565192085DC9F00F8B082 /* User.swift in Sources */,
