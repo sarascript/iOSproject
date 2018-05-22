@@ -17,6 +17,7 @@ class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
     var firestoreDB:Firestore?
     var firStorage:Storage?
+    var firStorageRef:StorageReference?
     var locationAdmin:LocationAdmin?
     var myUser:User = User()
     var arRepos:[Repo] = []
@@ -28,6 +29,7 @@ class DataHolder: NSObject {
         FirebaseApp.configure()
         firestoreDB = Firestore.firestore()
         firStorage = Storage.storage()
+        firStorageRef = firStorage?.reference()
     }
     
     func initLocationAdmin() {

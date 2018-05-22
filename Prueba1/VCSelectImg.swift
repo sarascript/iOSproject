@@ -11,6 +11,7 @@ import UIKit
 class VCSelectImg: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imgView:UIImageView?
     let imagePicker = UIImagePickerController()
+    var imgData:Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,18 @@ class VCSelectImg: UIViewController, UIImagePickerControllerDelegate, UINavigati
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func uploadBtn() {
+        let imagenRef = DataHolder.sharedInstance.firStorageRef?.child("tutorial/miimagen.jpg")
+        let uploadTask = imagenRef?.putData(imgData!, metadata:nil) { (metadata, error)
+            in
+            guard let metadata = metadata else {
+                return
+            }
+            let downloadURL = metadata.downloadURL
+            print("URL: ", downloadURL)
+        }
+    }
+    
     @IBAction func cameraBtn() {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .camera
@@ -40,7 +53,7 @@ class VCSelectImg: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
+        imgData = UIImageJPEGRepresentation(img!, 0.5)! as Data
         imgView?.image = img
         self.dismiss(animated: true, completion: nil)
     }
