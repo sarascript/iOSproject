@@ -11,6 +11,7 @@ import UIKit
 class User: NSObject {
     var sID:String?
     var sAvatar:String?
+    var sImage:String?
     var sBio:String?
     var sEmail:String?
     var sName:String?
@@ -20,6 +21,7 @@ class User: NSObject {
     
     func setMap(valores:[String:Any]) {
         sAvatar = valores["Avatar"] as? String
+        sImage = valores["Image"] as? String
         sBio = valores["Bio"] as? String
         sEmail = valores["Email"] as? String
         sName = valores["Name"] as? String
@@ -31,6 +33,7 @@ class User: NSObject {
     func getMap() -> [String:Any] {
         var mapTemp:[String:Any] = [:]
         mapTemp["Avatar"] = sAvatar as Any
+        mapTemp["Image"] = sImage as Any
         mapTemp["Bio"] = sBio as Any
         mapTemp["Email"] = sEmail as Any
         mapTemp["Name"] = sName as Any

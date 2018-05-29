@@ -19,7 +19,7 @@ class VCProfile: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myUsername?.text = DataHolder.sharedInstance.myUser.sUsername
-        //myAvatar?.image = DataHolder.sharedInstance.myUser.sAvatar
+        self.showImage(uri: DataHolder.sharedInstance.myUser.sImage!)
         myName?.text = DataHolder.sharedInstance.myUser.sName
         myEmail?.text = DataHolder.sharedInstance.myUser.sEmail
         myBio?.text = DataHolder.sharedInstance.myUser.sBio
@@ -45,5 +45,25 @@ class VCProfile: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    var downloadedImage:UIImage?
+    
+    func showImage(uri:String) {
+        // Create a reference to the file you want to download
+        self.myAvatar?.image = nil
+        //if downloadedImage == nil {
+        let gsReference = DataHolder.sharedInstance.firStorage?.reference(forURL: uri)
+        
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        gsReference?.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if error != nil {
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                self.downloadedImage = UIImage(data: data!)
+                self.myAvatar?.image = self.downloadedImage
+            }
+        }
+    }
 
 }

@@ -33,13 +33,15 @@ class VCSelectImg: UIViewController, UIImagePickerControllerDelegate, UINavigati
     }
     
     @IBAction func uploadBtn() {
-        let imagenRef = DataHolder.sharedInstance.firStorageRef?.child("tutorial/miimagen.jpg")
+        let imagenRef = DataHolder.sharedInstance.firStorageRef?.child("users/avatar.jpg")
         let uploadTask = imagenRef?.putData(imgData!, metadata:nil) { (metadata, error)
             in
             guard let metadata = metadata else {
                 return
             }
             let downloadURL = metadata.downloadURL
+            DataHolder.sharedInstance.myUser.sImage = "gs://charagit-e5789.appspot.com/users/avatar.jpg"
+            self.performSegue(withIdentifier: "trCancelChange", sender: self)
             print("URL: ", downloadURL)
         }
     }
@@ -60,6 +62,10 @@ class VCSelectImg: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel(){
+        self.performSegue(withIdentifier: "trCancelChange", sender: self)
     }
 
     /*
