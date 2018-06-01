@@ -12,6 +12,7 @@ target 'Prueba1' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseStorage'
+  pod 'OctoKit.swift', '~> 0.8'
 
   target 'Prueba1Tests' do
     inherit! :search_paths

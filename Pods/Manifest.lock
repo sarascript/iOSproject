@@ -91,6 +91,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NBNRequestKit (2.2.0)
+  - OctoKit.swift (0.8.0):
+    - NBNRequestKit (~> 2.0)
   - Protobuf (3.5.0)
 
 DEPENDENCIES:
@@ -100,6 +103,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Messaging
   - FirebaseStorage
+  - OctoKit.swift (~> 0.8)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -121,6 +125,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NBNRequestKit
+    - OctoKit.swift
     - Protobuf
 
 SPEC CHECKSUMS:
@@ -142,8 +148,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
+  OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
 
-PODFILE CHECKSUM: a8265436e638f1d94c050e5972f174c4825e9239
+PODFILE CHECKSUM: 05270af03a927eb895a0c1d9876fa8e237d5f88a
 
 COCOAPODS: 1.5.0

@@ -34,7 +34,9 @@ class ViewController: UIViewController, DataHolderDelegate {
     }
 
     @IBAction func login(){
-        DataHolder.sharedInstance.login(email: (txtEmail?.text)!, pass: (txtPass?.text)!, delegate: self)
+        //DataHolder.sharedInstance.login(email: (txtEmail?.text)!, pass: (txtPass?.text)!, delegate: self)
+        //DataHolder.sharedInstance.webView(webView: <#T##UIWebView#>, shouldStartLoadWithRequest: <#T##NSURLRequest#>, navigationType: <#T##UIWebViewNavigationType#>)
+       // DataHolder.sharedInstance.getUser(accessToken: <#T##String#>)
         //Auth.auth().signIn(withEmail: (txtEmail?.text)!, password: (txtPass?.text)!) { (user, error) in
           //  if (user != nil) {
             //    print("Te registraste con user ID: " + (user?.uid)!)
