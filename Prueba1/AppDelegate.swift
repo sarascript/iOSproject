@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import OAuthSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    /*func applicationHandle(url: URL) {
+        if (url.host == "oauth-callback") {
+            OAuthSwift.handle(url: url)
+        }
+        
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        applicationHandle(url: url)
+        return true
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        applicationHandle(url: url)
+        return true
+    }*/
 
 }
 

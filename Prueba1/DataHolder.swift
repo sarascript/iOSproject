@@ -25,7 +25,11 @@ class DataHolder: NSObject {
     var arRepos:[Repo] = []
     var arUsers:[User] = []
     var pines:[String:MKAnnotation]? = [:]
-
+    let Github =
+        [
+            "consumerKey": "8c89eaf28d0850fd5c91",
+            "consumerSecret": "a9ee174b231b4d1b4af5946fd3d1bf6389eb77c9"
+    ]
 
     
     func initFireBase() {
