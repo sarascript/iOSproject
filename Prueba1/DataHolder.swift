@@ -25,11 +25,10 @@ class DataHolder: NSObject {
     var arRepos:[Repo] = []
     var arUsers:[User] = []
     var pines:[String:MKAnnotation]? = [:]
-    let Github =
-        [
-            "consumerKey": "8c89eaf28d0850fd5c91",
-            "consumerSecret": "a9ee174b231b4d1b4af5946fd3d1bf6389eb77c9"
-    ]
+    var tokenValue = "";
+    var nRepos:Int?
+    var nFollowers:Int?
+
 
     
     func initFireBase() {
@@ -41,20 +40,6 @@ class DataHolder: NSObject {
     
     func initLocationAdmin() {
         locationAdmin = LocationAdmin()
-    }
-    
-    
-    
-    func getInfo() {
-        let username = DataHolder.sharedInstance.myUser.sUsername
-        Octokit().repositories() { response in
-            switch response {
-            case .success(let repository):
-                print(repository)
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     func downloadRepos(delegate:DataHolderDelegate) {
@@ -121,9 +106,7 @@ class DataHolder: NSObject {
     
     func login(email: String, pass: String, delegate:DataHolderDelegate){
         var blEnd:Bool = false
-        //let credential = GitHubAuthProvider.credential(withToken: accessToken)
         Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
-        //Auth.auth().signIn(with: credential) { (user, error) in
             if (user != nil) {
                 print("Te registraste con user ID: " + (user?.uid)!)
                 let refUser = DataHolder.sharedInstance.firestoreDB?.collection("Users").document((user?.uid)!)
@@ -134,8 +117,6 @@ class DataHolder: NSObject {
                         //self.performSegue(withIdentifier: "trLogin", sender: self)
                         blEnd = true
                         delegate.DHDloginComplete!(blEnd: true)
-                        //self.connect()
-                        self.getInfo()
                     } else {
                         print(error!)
                     }
