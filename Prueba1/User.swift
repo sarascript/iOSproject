@@ -15,6 +15,10 @@ class User: NSObject {
     var sBio:String?
     var sEmail:String?
     var sName:String?
+    var sTitle:String?
+    var iXP:Int?
+    var nRepos:Int?
+    var nFollowers:Int?
     var sUsername:String?
     var dbLatitude:Double?
     var dbLongitude:Double?
@@ -25,6 +29,10 @@ class User: NSObject {
         sBio = valores["Bio"] as? String
         sEmail = valores["Email"] as? String
         sName = valores["Name"] as? String
+        sTitle = valores["Title"] as? String
+        iXP = valores["XP"] as? Int
+        nRepos = valores["Repos"] as? Int
+        nFollowers = valores["Followers"] as? Int
         sUsername = valores["Username"] as? String
         dbLatitude = valores["Latitude"] as? Double
         dbLongitude = valores["Longitude"] as? Double
@@ -37,6 +45,10 @@ class User: NSObject {
         mapTemp["Bio"] = sBio as Any
         mapTemp["Email"] = sEmail as Any
         mapTemp["Name"] = sName as Any
+        mapTemp["Title"] = sTitle as Any
+        mapTemp["XP"] = iXP as Any
+        mapTemp["Repos"] = nRepos as Any
+        mapTemp["Followers"] = nFollowers as Any
         mapTemp["Username"] = sUsername as Any
         mapTemp["Latitude"] = dbLatitude as Any
         mapTemp["Longitude"] = dbLongitude as Any

@@ -27,36 +27,41 @@ class VCGithub: UIViewController, UIWebViewDelegate, WKNavigationDelegate{
                 print("TOKEN", token.accessToken)
                 DataHolder.sharedInstance.tokenValue = token.accessToken!
                 self.myToken = token
-                self.getRepos()
-                self.getFollowers()
+                self.getInfo()
             })
         }
         decisionHandler(.allow)
-        //self.performSegue(withIdentifier: "trTokenOk", sender: self)
     }
     
     
     
-    func getRepos() {
+    func getInfo() {
         let task = Octokit(myToken).repositories() { response in
             switch response {
             case .success(let repositories):
                 print("Nº REPOS: ",repositories.count)
-                DataHolder.sharedInstance.nRepos = repositories.count
+                DataHolder.sharedInstance.myUser.nRepos = repositories.count
+                let task = Octokit(self.myToken).myFollowers() { response in
+                    switch response {
+                    case .success(let users):
+                        print("Nº FOLLOWERS: ",users.count)
+                        DataHolder.sharedInstance.myUser.nFollowers = users.count
+                        DataHolder.sharedInstance.myUser.iXP = DataHolder.sharedInstance.myUser.nRepos! * 100 + DataHolder.sharedInstance.myUser.nFollowers! * 200
+                        print("DATOS DH!!!: ",DataHolder.sharedInstance.myUser.iXP, DataHolder.sharedInstance.myUser.nRepos, DataHolder.sharedInstance.myUser.nFollowers)
+                        if DataHolder.sharedInstance.myUser.iXP! >= 1000 {
+                            DataHolder.sharedInstance.myUser.sAvatar = "https://firebasestorage.googleapis.com/v0/b/charagit-e5789.appspot.com/o/chara1.gif?alt=media&token=89a7cda2-a6f5-40b5-a38d-72b953a46ac4"
+                            DataHolder.sharedInstance.myUser.sTitle = "Experienced Warrior"
+                        } else {
+                            DataHolder.sharedInstance.myUser.sAvatar = "https://firebasestorage.googleapis.com/v0/b/charagit-e5789.appspot.com/o/chara2.gif?alt=media&token=7cbe2ba5-0112-43a4-8585-497acce45a30"
+                            DataHolder.sharedInstance.myUser.sTitle = "Newbie Adventurer"
+                        }
+                        self.performSegue(withIdentifier: "trGithubOK", sender: self)
+                    case .failure(let error):
+                        print("ERROR IN FOLLOWERS: ",error)
+                    }
+                }
             case .failure(let error):
                 print("ERROR IN REPOS: ",error)
-            }
-        }
-    }
-    
-    func getFollowers() {
-        let task = Octokit(myToken).myFollowers() { response in
-            switch response {
-            case .success(let users):
-                print("Nº FOLLOWERS: ",users.count)
-                DataHolder.sharedInstance.nFollowers = users.count
-            case .failure(let error):
-                print("ERROR IN FOLLOWERS: ",error)
             }
         }
     }

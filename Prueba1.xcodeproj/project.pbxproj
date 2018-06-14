@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A6159D020B4268E00922B61 /* VCProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6159CF20B4268E00922B61 /* VCProfile.swift */; };
-		1A95E61720BD500C0091447A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A95E61620BD500C0091447A /* GitHubAPI.swift */; };
+		1AA41B4620D30A2700E337AF /* VCProfile2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA41B4520D30A2700E337AF /* VCProfile2.swift */; };
 		1AC3927620C132A300037B72 /* VCGithub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3927520C132A300037B72 /* VCGithub.swift */; };
 		303DE9D520A0598900708652 /* LocationAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303DE9D420A0598900708652 /* LocationAdmin.swift */; };
 		3040CAE7207CA6DE003BFF05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3040CAE6207CA6DD003BFF05 /* GoogleService-Info.plist */; };
@@ -61,7 +61,7 @@
 		0D8E2B716D4CE17C26BAA8B2 /* Pods-Prueba1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba1/Pods-Prueba1.debug.xcconfig"; sourceTree = "<group>"; };
 		137078CB44DBF654081584F8 /* Pods-Prueba1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba1UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba1UITests/Pods-Prueba1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		1A6159CF20B4268E00922B61 /* VCProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCProfile.swift; sourceTree = "<group>"; };
-		1A95E61620BD500C0091447A /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		1AA41B4520D30A2700E337AF /* VCProfile2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCProfile2.swift; sourceTree = "<group>"; };
 		1AC3927520C132A300037B72 /* VCGithub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCGithub.swift; sourceTree = "<group>"; };
 		1BB34182BA54C7C9AEF5C597 /* Pods_Prueba1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		303DE9D420A0598900708652 /* LocationAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAdmin.swift; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 				303DE9D420A0598900708652 /* LocationAdmin.swift */,
 				30FB262F20A2DF4F00E92EF2 /* VCSelectImg.swift */,
 				1A6159CF20B4268E00922B61 /* VCProfile.swift */,
-				1A95E61620BD500C0091447A /* GitHubAPI.swift */,
 				1AC3927520C132A300037B72 /* VCGithub.swift */,
+				1AA41B4520D30A2700E337AF /* VCProfile2.swift */,
 			);
 			path = Prueba1;
 			sourceTree = "<group>";
@@ -570,6 +570,7 @@
 				1A6159D020B4268E00922B61 /* VCProfile.swift in Sources */,
 				1AC3927620C132A300037B72 /* VCGithub.swift in Sources */,
 				3040CAE9207CAEA6003BFF05 /* DataHolder.swift in Sources */,
+				1AA41B4620D30A2700E337AF /* VCProfile2.swift in Sources */,
 				30E84AD72076573800B7B563 /* VCItem2.swift in Sources */,
 				304565192085DC9F00F8B082 /* User.swift in Sources */,
 				30A2F80F20737DBB005D3FC0 /* VCSignin.swift in Sources */,
@@ -577,7 +578,6 @@
 				303DE9D520A0598900708652 /* LocationAdmin.swift in Sources */,
 				30FC59DB20761109008CA9C0 /* MyCell1.swift in Sources */,
 				3056D11320887A330035E325 /* VCMap.swift in Sources */,
-				1A95E61720BD500C0091447A /* GitHubAPI.swift in Sources */,
 				30A2F7E120736337005D3FC0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

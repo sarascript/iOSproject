@@ -28,8 +28,6 @@ class DataHolder: NSObject {
     var tokenValue = "";
     var nRepos:Int?
     var nFollowers:Int?
-
-
     
     func initFireBase() {
         FirebaseApp.configure()
@@ -131,6 +129,17 @@ class DataHolder: NSObject {
     func signin(email: String, pass: String, repass: String, delegate:DataHolderDelegate){
         var blEnd:Bool = false
         DataHolder.sharedInstance.myUser.sEmail = email
+        DataHolder.sharedInstance.myUser.dbLatitude = 0
+        DataHolder.sharedInstance.myUser.dbLongitude = 0
+        DataHolder.sharedInstance.myUser.iXP = 0
+        DataHolder.sharedInstance.myUser.nFollowers = 0
+        DataHolder.sharedInstance.myUser.nRepos = 0
+        DataHolder.sharedInstance.myUser.sAvatar = "none"
+        DataHolder.sharedInstance.myUser.sBio =  "none"
+        DataHolder.sharedInstance.myUser.sImage =  "https://firebasestorage.googleapis.com/v0/b/charagit-e5789.appspot.com/o/logo.png?alt=media&token=5b357f09-92e7-4f36-b4f9-1b0a7cbc9208"
+        DataHolder.sharedInstance.myUser.sName =  "none"
+        DataHolder.sharedInstance.myUser.sTitle =  "none"
+        DataHolder.sharedInstance.myUser.sUsername = email
         if pass ==  repass {
             Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                 if (user != nil) {
