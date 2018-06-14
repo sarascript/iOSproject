@@ -27,22 +27,36 @@ class VCGithub: UIViewController, UIWebViewDelegate, WKNavigationDelegate{
                 print("TOKEN", token.accessToken)
                 DataHolder.sharedInstance.tokenValue = token.accessToken!
                 self.myToken = token
-                self.loadCurrentUser(config: self.myToken) 
+                self.getRepos()
+                self.getFollowers()
             })
         }
         decisionHandler(.allow)
         //self.performSegue(withIdentifier: "trTokenOk", sender: self)
     }
     
-    func loadCurrentUser(config: TokenConfiguration) {
-        Octokit(config).me() { response in
+    
+    
+    func getRepos() {
+        let task = Octokit(myToken).repositories() { response in
             switch response {
-            case .success(let user):
-                print("Authenticated with github user: ", user.login)
-                self.getRepos()
-                self.getFollowers()
+            case .success(let repositories):
+                print("Nº REPOS: ",repositories.count)
+                DataHolder.sharedInstance.nRepos = repositories.count
             case .failure(let error):
-                print("ERROR IN AUTH: ", error)
+                print("ERROR IN REPOS: ",error)
+            }
+        }
+    }
+    
+    func getFollowers() {
+        let task = Octokit(myToken).myFollowers() { response in
+            switch response {
+            case .success(let users):
+                print("Nº FOLLOWERS: ",users.count)
+                DataHolder.sharedInstance.nFollowers = users.count
+            case .failure(let error):
+                print("ERROR IN FOLLOWERS: ",error)
             }
         }
     }
@@ -53,28 +67,6 @@ class VCGithub: UIViewController, UIWebViewDelegate, WKNavigationDelegate{
         WV?.navigationDelegate = self;
         let url = config.authenticate()
         WV?.load(URLRequest(url: url!))
-    }
-    
-    func getRepos() {
-        Octokit().repositories() { response in
-            switch response {
-            case .success(let repository):
-                print("REPOS: ", repository)
-            case .failure(let error):
-                print("ERROR IN REPOS: ", error)
-            }
-        }
-    }
-    
-    func getFollowers() {
-        Octokit().myFollowers() { response in
-            switch response {
-            case .success(let users):
-                print("FOLLOWERS: ", users)
-            case .failure(let error):
-                print("ERROR IN FOLLOWERS: ", error)
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {
